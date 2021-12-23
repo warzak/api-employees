@@ -65,7 +65,7 @@ and
     },
 ```
 ---
-### Employess
+### Employees
 - GET All http://0.0.0.0:80/api/employees
 ```angular2html
 {

@@ -1,66 +1,404 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+#Employees REST APi
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+###Following are the Models
+- Address
+- City
+- Employee
+- Salaries
+- State
+- User
 
-## About Laravel
+###Usage
+Clone the project via git clone or download the zip file.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+###Development environment
+https://github.com/laravel/sail
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+###Composer Install
+cd into the project directory via terminal sail and run the following command to install composer packages.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+`composer install`
 
-## Learning Laravel
+###Generate Key
+then run the following command to generate fresh key.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+`artisan key:generate`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+###Run Migration
+then run the following command to create migrations in the databbase.
 
-## Laravel Sponsors
+`artisan migrate`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+###Database Seeding
+finally run the following command to seed the database with dummy content.
 
-### Premium Partners
+`artisan db:seed --class=Blit\\StatesAndCities\\Seeds\\DatabaseSeeder`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+and
 
-## Contributing
+`artisan db:seed`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+##API EndPoints
+###States and Cities
+- GET http://0.0.0.0:80/api/states
+```angular2html
+    {
+        "id": 1,
+        "country_id": 1,
+        "ibge": 12,
+        "code": "AC",
+        "name": "Acre",
+        "created_at": "2021-12-23T22:41:57.000000Z",
+        "updated_at": "2021-12-23T22:41:57.000000Z"
+    }
+```
+---
+- GET http://0.0.0.0:80/api/cities
+```angular2html
+    {
+        "id": 1,
+        "state_id": 22,
+        "code": 1100015,
+        "name": "Alta Floresta Do Oeste",
+        "created_at": "2021-12-23T22:41:57.000000Z",
+        "updated_at": "2021-12-23T22:41:57.000000Z"
+    },
+```
+---
+###Employess
+- GET All http://0.0.0.0:80/api/employees
+```angular2html
+{
+    "employees": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "address_id": 10,
+                "first_name": "Naiara",
+                "last_name": "Espinoza",
+                "email": "rivera.ruth@example.org",
+                "cpf": "96182831006",
+                "rg": "942002407",
+                "birthday": "1996-04-24",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 2,
+                "address_id": 37,
+                "first_name": "Nayara",
+                "last_name": "da Rosa",
+                "email": "torres.noa@example.org",
+                "cpf": "33239844206",
+                "rg": "917829557",
+                "birthday": "1994-01-26",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 3,
+                "address_id": 3,
+                "first_name": "Eric",
+                "last_name": "Colaço",
+                "email": "emiliano.avila@example.net",
+                "cpf": "67619543988",
+                "rg": "651170320",
+                "birthday": "2013-05-30",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 4,
+                "address_id": 33,
+                "first_name": "Stella",
+                "last_name": "Carvalho",
+                "email": "molina.igor@example.net",
+                "cpf": "26925723008",
+                "rg": "575992328",
+                "birthday": "2009-02-09",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 5,
+                "address_id": 28,
+                "first_name": "Heitor",
+                "last_name": "Maia",
+                "email": "gabrielle40@example.com",
+                "cpf": "64947282436",
+                "rg": "030158699",
+                "birthday": "1978-10-07",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 6,
+                "address_id": 50,
+                "first_name": "Alícia",
+                "last_name": "Correia",
+                "email": "eva61@example.net",
+                "cpf": "26238711752",
+                "rg": "609772597",
+                "birthday": "2016-11-19",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 7,
+                "address_id": 49,
+                "first_name": "Rodolfo",
+                "last_name": "Queirós",
+                "email": "stella.sandoval@example.net",
+                "cpf": "13131143673",
+                "rg": "270683429",
+                "birthday": "2021-12-07",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 8,
+                "address_id": 4,
+                "first_name": "Erik",
+                "last_name": "Balestero",
+                "email": "qqueiros@example.net",
+                "cpf": "72695631103",
+                "rg": "188988041",
+                "birthday": "1999-01-15",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 9,
+                "address_id": 12,
+                "first_name": "Jonas",
+                "last_name": "Marques",
+                "email": "ronaldo.dearruda@example.org",
+                "cpf": "03930966611",
+                "rg": "788599348",
+                "birthday": "2006-05-18",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 10,
+                "address_id": 14,
+                "first_name": "Heitor",
+                "last_name": "Tamoio",
+                "email": "dfonseca@example.org",
+                "cpf": "51837395446",
+                "rg": "109321812",
+                "birthday": "2009-04-17",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 11,
+                "address_id": 50,
+                "first_name": "Gian",
+                "last_name": "Vale",
+                "email": "pena.davi@example.net",
+                "cpf": "32913698662",
+                "rg": "561953090",
+                "birthday": "1996-07-05",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 12,
+                "address_id": 28,
+                "first_name": "Heitor",
+                "last_name": "de Freitas",
+                "email": "daniela83@example.org",
+                "cpf": "22881358756",
+                "rg": "024943800",
+                "birthday": "2012-01-22",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 13,
+                "address_id": 22,
+                "first_name": "Téo",
+                "last_name": "Meireles",
+                "email": "natan98@example.org",
+                "cpf": "39631465080",
+                "rg": "689580509",
+                "birthday": "2012-05-25",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 14,
+                "address_id": 34,
+                "first_name": "Maitê",
+                "last_name": "Campos",
+                "email": "luciana.valentin@example.com",
+                "cpf": "12949745563",
+                "rg": "221386823",
+                "birthday": "2008-06-12",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            },
+            {
+                "id": 15,
+                "address_id": 40,
+                "first_name": "Bruno",
+                "last_name": "Queirós",
+                "email": "dayana.ferraz@example.com",
+                "cpf": "89783413309",
+                "rg": "924830530",
+                "birthday": "2000-08-03",
+                "created_at": "2021-12-23T22:44:10.000000Z",
+                "updated_at": "2021-12-23T22:44:10.000000Z",
+                "deleted_at": null
+            }
+        ],
+        "first_page_url": "http://0.0.0.0/api/employees?page=1",
+        "from": 1,
+        "last_page": 4,
+        "last_page_url": "http://0.0.0.0/api/employees?page=4",
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http://0.0.0.0/api/employees?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http://0.0.0.0/api/employees?page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http://0.0.0.0/api/employees?page=3",
+                "label": "3",
+                "active": false
+            },
+            {
+                "url": "http://0.0.0.0/api/employees?page=4",
+                "label": "4",
+                "active": false
+            },
+            {
+                "url": "http://0.0.0.0/api/employees?page=2",
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": "http://0.0.0.0/api/employees?page=2",
+        "path": "http://0.0.0.0/api/employees",
+        "per_page": 15,
+        "prev_page_url": null,
+        "to": 15,
+        "total": 50
+    },
+    "message": "Retrieved successfully"
+}
+```
+---
+- GET Single http://0.0.0.0:80/api/employees/4
+```
+{
+    "employee": {
+        "id": 4,
+        "first_name": "Stella",
+        "last_name": "Carvalho",
+        "email": "molina.igor@example.net",
+        "cpf": "26925723008",
+        "rg": "575992328",
+        "birthday": "2009-02-09",
+        "address": "Travessa Maiara, 4. Bloco B CEP 83899-835 - Barão do Triunfo / RS",
+        "salaries": [
+            "2021-12-23 - R$6985.49",
+            "2021-12-23 - R$3811.28"
+        ]
+    },
+    "message": "Record found"
+}
+```
+---
+- GET CPF http://0.0.0.0:80/api/employees/cpf/26925723008
+```
+{
+    "employee": {
+        "id": 4,
+        "first_name": "Stella",
+        "last_name": "Carvalho",
+        "email": "molina.igor@example.net",
+        "cpf": "26925723008",
+        "rg": "575992328",
+        "birthday": "2009-02-09",
+        "address": "Travessa Maiara, 4. Bloco B CEP 83899-835 - Barão do Triunfo / RS",
+        "salaries": [
+            "2021-12-23 - R$6985.49",
+            "2021-12-23 - R$3811.28"
+        ]
+    },
+    "message": "Record found"
+}
+```
+---
+- POST Create http://0.0.0.0:80/api/employees
+```angular2html
+[body json request]
 
-## Code of Conduct
+{
+    "first_name": "Maria",
+    "last_name": "Salgada",
+    "email": "vmascarenhas@example.net",
+    "cpf": "10583102166",
+    "rg": "722712618",
+    "birthday": "1999-03-01",
+    "address":" rua x3, numero 592",
+    "postal_code":"92500000",
+    "city_id":"22"
+}
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+{
+"message": "Registered successfully"
+}
 
-## Security Vulnerabilities
+```
+---
+- POST Salary http://0.0.0.0:80/api/employees/salary
+```
+[body json request]
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+{
+    "employee_id": "18",
+    "salary": 1000.55
+}
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+[response]
+
+{
+"message": "Registered successfully"
+}
+```
+- PUT Update http://0.0.0.0:80/api/employees (create similar)
+- DELETE destroy http://0.0.0.0:80/api/employees/18
+
+
+######Author: Rodrigo Warzak - warzak@gmail.com
+
+23/12/2021

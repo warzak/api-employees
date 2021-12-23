@@ -1,6 +1,6 @@
-#Employees REST APi
+# Employees REST APi
 
-###Following are the Models
+### Following are the Models
 - Address
 - City
 - Employee
@@ -8,28 +8,28 @@
 - State
 - User
 
-###Usage
+### Usage
 Clone the project via git clone or download the zip file.
 
-###Development environment
+### Development environment
 https://github.com/laravel/sail
 
-###Composer Install
+### Composer Install
 cd into the project directory via terminal sail and run the following command to install composer packages.
 
 `composer install`
 
-###Generate Key
+### Generate Key
 then run the following command to generate fresh key.
 
 `artisan key:generate`
 
-###Run Migration
+### Run Migration
 then run the following command to create migrations in the databbase.
 
 `artisan migrate`
 
-###Database Seeding
+### Database Seeding
 finally run the following command to seed the database with dummy content.
 
 `artisan db:seed --class=Blit\\StatesAndCities\\Seeds\\DatabaseSeeder`
@@ -38,8 +38,8 @@ and
 
 `artisan db:seed`
 
-##API EndPoints
-###States and Cities
+## API EndPoints
+### States and Cities
 - GET http://0.0.0.0:80/api/states
 ```angular2html
     {
@@ -65,7 +65,7 @@ and
     },
 ```
 ---
-###Employess
+### Employess
 - GET All http://0.0.0.0:80/api/employees
 ```angular2html
 {
@@ -373,6 +373,8 @@ and
     "city_id":"22"
 }
 
+[response]
+
 {
 "message": "Registered successfully"
 }
@@ -399,6 +401,7 @@ and
 - DELETE destroy http://0.0.0.0:80/api/employees/18
 
 
-######Author: Rodrigo Warzak - warzak@gmail.com
+###### Author: Rodrigo Warzak - warzak@gmail.com
 
 23/12/2021
+
